@@ -35,8 +35,8 @@ npm install --save flv.js
 ## Build
 ```bash
 npm install          # install dev-dependences
-npm install -g gulp  # install build tool
-gulp release         # packaged & minimized js will be emitted in dist folder
+npm run build        # packaged js will be emitted in dist folder
+# if you want minified (169kb instead of 618kb) look at gulpfile.js for options to run uglify
 ```
 
 [cnpm](https://github.com/cnpm/cnpm) mirror is recommended if you are in Mainland China.

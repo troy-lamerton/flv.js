@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "es6-promise": "^4.2.5",
+    "rfc4648": "^1.4.0",
     "webworkify": "^1.5.0"
   },
   "devDependencies": {

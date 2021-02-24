@@ -19,6 +19,7 @@
 import Log from '../utils/logger.js';
 import {BaseLoader, LoaderStatus, LoaderErrors} from './loader.js';
 import {RuntimeException} from '../utils/exception.js';
+import {base64} from 'rfc4648';
 
 // For FLV over WebSocket live stream
 class WebSocketLoader extends BaseLoader {
@@ -101,7 +102,10 @@ class WebSocketLoader extends BaseLoader {
     }
 
     _onWebSocketMessage(e) {
-        if (e.data instanceof ArrayBuffer) {
+        if (typeof e.data === 'string') {
+            const bytes = base64.parse(e.data);
+            this._dispatchArrayBuffer(bytes.buffer);
+        } else if (e.data instanceof ArrayBuffer) {
             this._dispatchArrayBuffer(e.data);
         } else if (e.data instanceof Blob) {
             let reader = new FileReader();

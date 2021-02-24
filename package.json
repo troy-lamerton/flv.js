@@ -19,6 +19,7 @@
   "scripts": {
     "dev": "gulp watch",
     "build": "node ./build.js",
+    "minify": "uglifyjs ./dist/flv.js -o ./dist/flv.min.js",
     "dtslint": "dtslint types"
   },
   "dependencies": {
@@ -42,7 +43,7 @@
     "gulp-uglify": "^2.1.1",
     "opn": "^5.4.0",
     "rimraf": "^3.0.2",
-    "uglify": "^0.1.5",
+    "uglify-js": "^3.12.8",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^1.1.2",
     "watchify": "^3.11.0"
